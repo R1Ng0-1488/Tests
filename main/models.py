@@ -18,6 +18,7 @@ class Test(models.Model):
 
 	class Meta:
 		ordering = ('order',) 
+		unique_together = ('order', 'test_set')
 
 
 class Answer(models.Model):
@@ -26,4 +27,4 @@ class Answer(models.Model):
 	test = models.ForeignKey(Test, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.answer + '---'
+		return self.answer
