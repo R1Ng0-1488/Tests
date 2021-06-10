@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.test_set.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1>{{ object.test_set.name  }}</h1>
+			<hr>
+			<h2>{{ object.question }}</h2>
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{ form.management_form }}
+				{% for f in form %}
+				{% if f.answer.value %}
+					<p>{{ f.answer.value }} {{ f.answer_is_true }}</p>
+					{{ f.answer }}
+					{{ f.test }}
+					{{ f.id }}
+				{% endif %}
+				{{ form.non_form_errors }}
+				{% for f in form.errors %}
+					{{ f.errors }}
+				{% endfor %}
+				{% endfor %}
+				<button class="btn btn-primary" type="submit">Далее</button>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

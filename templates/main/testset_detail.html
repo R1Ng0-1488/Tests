@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1>{{ object.name }}</h1>
+			<p>Количество верных ответов: {{ true }}</p>
+			<p>Количество неверных ответов: {{ false }}</p>
+			<p>Количество верных ответов в процентах: {{ true_percent }} %</p>
+			<p>Количество неверных ответов в процентах: {{ false_percent }} %</p>
+
+		</div>
+	</div>
+</div>
+{% endblock %}
